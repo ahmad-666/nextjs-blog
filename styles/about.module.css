@@ -1,0 +1,23 @@
+.about {
+  width: 100%;
+  height: auto;
+  padding: 2em;
+  background-color: white;
+  border-radius: 2em;
+  -webkit-box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.3);
+  margin-top: 2em;
+}
+
+.title {
+  font-size: 2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.txt {
+  margin-top: 1em;
+  line-height: 2.5em;
+  font-size: 1.5em;
+}
+/*# sourceMappingURL=about.module.css.map */

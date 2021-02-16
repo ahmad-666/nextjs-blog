@@ -1,0 +1,26 @@
+@import '../../styles/colors.scss';
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.items {
+  display: flex;
+  align-items: center;
+}
+.item {
+  font-size: 1.6em;
+  margin: 0 1em;
+}
+.special {
+  padding: 0.6em 1.2em;
+  border-radius: 1em;
+  color: white;
+}
+.specialNew {
+  background-image: $specialNew;
+}
+.specialArticles {
+  background-image: $specialArticles;
+}

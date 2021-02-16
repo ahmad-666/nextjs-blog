@@ -1,0 +1,82 @@
+.article {
+  width: 100%;
+  height: auto;
+  margin-top: 2em;
+  border-radius: 2em;
+  -webkit-box-shadow: 0 1em 2em 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 1em 2em 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.imgContainer {
+  width: 100%;
+  height: 30em;
+  position: relative;
+}
+
+.title {
+  width: 100%;
+  padding: 0.5em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 2em;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.info {
+  width: 100%;
+  padding: 2em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.withIcon {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.icon {
+  color: #bebebe;
+}
+
+.iconText {
+  color: #bebebe;
+  margin-left: 0.5em;
+  font-size: 1.3em;
+}
+
+.content {
+  padding: 1em;
+}
+
+.txt {
+  color: #323232;
+  line-height: 2.5em;
+  font-size: 1.6em;
+}
+/*# sourceMappingURL=article.module.css.map */

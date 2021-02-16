@@ -1,0 +1,58 @@
+@import '../styles/colors.scss';
+@import '../styles/variables.scss';
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 60em;
+  border-radius: 2em;
+  box-shadow: 0 1em 2em 0 rgba(0, 0, 0, 0.2);
+  background-color: $sectionBgColor;
+  margin-top: 4em;
+  overflow: hidden;
+}
+.title {
+  width: 100%;
+  padding: 0.6em;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2em;
+  color: $titleColor;
+  background-color: darken($sectionBgColor, 15%);
+}
+.form {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.submitBtn {
+  padding: 0.5em 1.5em;
+  font-size: $textFontSize + 0.2em;
+  background-color: royalblue;
+  color: white;
+  border-radius: 1em;
+  margin-top: 1em;
+  &:disabled {
+    cursor: initial;
+    background-color: rgb(200, 200, 200);
+    color: white;
+  }
+}
+.msg {
+  display: table;
+  padding: 0.4em 1em;
+  color: white;
+  font-size: $textFontSize;
+  border-radius: 1em;
+  margin: 1em auto;
+}
+.msg.error {
+  background-color: $errorColor;
+}
+.msg.success {
+  background-color: $successColor;
+}

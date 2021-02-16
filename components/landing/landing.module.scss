@@ -1,0 +1,32 @@
+@import '../../styles/colors.scss';
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2em;
+}
+.content {
+  flex: 5 5;
+  margin-right: 10em;
+}
+.title {
+  font-size: 3em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.txt {
+  color: lighten($textColor, 20%);
+  margin-top: 1em;
+}
+.btn {
+  flex: 1 1;
+  background-image: $specialNew;
+  padding: 0.7em 1.6em;
+  font-size: 1.5em;
+  border-radius: 1em;
+  color: white;
+  text-align: center;
+}
