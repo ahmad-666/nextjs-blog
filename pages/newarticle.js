@@ -67,26 +67,33 @@ const NewArticle = () => {
   // };
   const formSubmitHandler = async (values, submitProps) => {
     dispatch({ type: 'submit' });
-    const headers = {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    };
-    const body = values;
-    let res = null;
-    try {
-      res = (
-        await axios.post(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/articles/newarticle`,
-          body,
-          headers
-        )
-      ).data;
+    setTimeout(() => {
       submitProps.setSubmitting(false);
       submitProps.resetForm();
-      dispatch({ type: 'success', msg: res.msg });
-    } catch (err) {
-      dispatch({ type: 'error', msg: 'error happens' });
-    }
+      dispatch({ type: 'success', msg: 'article successfully added' });
+    }, 2000);
+
+    // dispatch({ type: 'submit' });
+    // const headers = {
+    //   'Content-Type': 'application/json',
+    //   Accept: 'application/json',
+    // };
+    // const body = values;
+    // let res = null;
+    // try {
+    //   res = (
+    //     await axios.post(
+    //       `${process.env.NEXT_PUBLIC_SERVER_URL}/articles/newarticle`,
+    //       body,
+    //       headers
+    //     )
+    //   ).data;
+    //   submitProps.setSubmitting(false);
+    //   submitProps.resetForm();
+    //   dispatch({ type: 'success', msg: res.msg });
+    // } catch (err) {
+    //   dispatch({ type: 'error', msg: 'error happens' });
+    // }
   };
   return (
     <>

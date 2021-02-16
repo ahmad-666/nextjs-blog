@@ -10,6 +10,7 @@ import Meta from '../../components/meta/Meta';
 import Layout from '../../components/layout/Layout';
 import Loader from '../../components/loader/Loader';
 import { articleAnimation } from '../../animations';
+import articlesData from '../../public/data/articles';
 
 const Article = ({ title, content, imgSrc, writer, date }) => {
   const router = useRouter();
@@ -73,50 +74,81 @@ Article.propTypes = {
   date: PropTypes.string,
 };
 export const getStaticPaths = async () => {
-  try {
-    const res = (
-      await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/articles`)
-    ).data;
-    // const paths = res.articles.map(article => {
-    //   return {
-    //     params: {
-    //       id: article._id,
-    //     },
-    //   };
-    // });
-    // return {
-    //   paths,
-    //   fallback: false,
-    // };
+  const paths = articlesData.map(article => {
     return {
-      paths: [{ params: { id: '1' } }],
-      fallback: true,
+      params: {
+        id: article._id,
+      },
     };
-  } catch (err) {
-    return {
-      paths: [],
-      fallback: false,
-    };
-  }
+  });
+  return {
+    paths,
+    fallback: false,
+  };
+
+  // try {
+  //   const res = (
+  //     await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/articles`)
+  //   ).data;
+  //   // const paths = res.articles.map(article => {
+  //   //   return {
+  //   //     params: {
+  //   //       id: article._id,
+  //   //     },
+  //   //   };
+  //   // });
+  //   // return {
+  //   //   paths,
+  //   //   fallback: false,
+  //   // };
+  //   return {
+  //     paths: [{ params: { id: '1' } }],
+  //     fallback: true,
+  //   };
+  // } catch (err) {
+  //   return {
+  //     paths: [],
+  //     fallback: false,
+  //   };
+  // }
 };
 export const getStaticProps = async context => {
   const { id } = context.params;
-  const res = (
-    await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/articles/${id}`)
-  ).data;
-  const props = {};
-  if (res.error) props.article = {};
-  else {
-    props.title = res.article.title;
-    props.content = res.article.content;
-    props.imgSrc = res.article.imgSrc;
-    props.writer = res.article.writer;
-    props.date = res.article.date;
+  const article = articlesData.filter(art => art._id == id);
+  if (!article.length) {
+    return {
+      props: {},
+      notFound: true,
+    };
   }
+  const props = {};
+  props.title = article[0].title;
+  props.content = article[0].content;
+  props.imgSrc = article[0].imgSrc;
+  props.writer = article[0].writer;
+  props.date = article[0].date;
+
   return {
     props,
     revalidate: 60,
-    notFound: res.error && true,
   };
+  // const { id } = context.params;
+  // const res = (
+  //   await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/articles/${id}`)
+  // ).data;
+  // const props = {};
+  // if (res.error) props.article = {};
+  // else {
+  //   props.title = res.article.title;
+  //   props.content = res.article.content;
+  //   props.imgSrc = res.article.imgSrc;
+  //   props.writer = res.article.writer;
+  //   props.date = res.article.date;
+  // }
+  // return {
+  //   props,
+  //   revalidate: 60,
+  //   notFound: res.error && true,
+  // };
 };
 export default Article;

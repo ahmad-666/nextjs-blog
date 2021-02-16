@@ -2,8 +2,11 @@ const withPWA = require('next-pwa');
 const runtimeCaching = require('next-pwa/cache');
 
 module.exports = withPWA({
+  // images: {
+  //   loader: 'imgix',
+  // },
   pwa: {
-    disable: false, // now we have sw on both dev,prod
+    disable: true, // now we have sw on both dev,prod
     // false to s generate service worker in both dev and prod
     // true to completely disable PWA
     // process.env.NODE_ENV === 'development' if we just want sw on prod
